@@ -1,8 +1,8 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-// Initialise Resend avec la clé secrète depuis .env.local
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialise Resend avec la clé secrète depuis .env.local, fallback vers une clé bidon pour le build Vercel
+const resend = new Resend(process.env.RESEND_API_KEY || 'missing_key');
 
 export async function POST(request: Request) {
   try {
