@@ -14,9 +14,18 @@ export default function AccountStep({ onNext }: AccountStepProps) {
   const [showVerification, setShowVerification] = useState(false);
   const [emailProviderLink, setEmailProviderLink] = useState('');
 
-  const handleSubmit = (e?: any) => {
+  const handleSubmit = async (e?: any) => {
     e?.preventDefault();
     const mail = email.toLowerCase();
+    
+    // Déclenchement de l'envoi de l'e-mail avec Resend
+    if (mail) {
+      fetch('/api/send-verification', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: mail })
+      }).catch(err => console.error("Erreur d'envoi d'e-mail:", err));
+    }
     
     if (mail.includes('@gmail.')) {
       setEmailProviderLink('https://mail.google.com');
@@ -28,7 +37,7 @@ export default function AccountStep({ onNext }: AccountStepProps) {
       setEmailProviderLink('https://mail.yahoo.com');
       setShowVerification(true);
     } else {
-      // Default behavior if no specific provider is detected or no verification link is needed
+      // Default behavior si le fournisseur n'est pas détecté
       onNext();
     }
   };
