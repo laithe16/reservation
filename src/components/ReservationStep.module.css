@@ -1,0 +1,144 @@
+.stepContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-secondary);
+}
+
+.required {
+  color: #ef4444;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroupFull {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.stepContainer label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.stepContainer input, .stepContainer select, .stepContainer textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.stepContainer input:focus, .stepContainer select:focus, .stepContainer textarea:focus {
+  border-color: var(--input-focus);
+  outline: none;
+  background-color: var(--surface-white);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.stepContainer textarea {
+  resize: vertical;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.serviceCard {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  background-color: var(--surface-white);
+}
+
+.serviceCard:hover {
+  border-color: #cbd5e1;
+}
+
+.serviceCard.active {
+  border-color: var(--brand-navy);
+  background-color: #f8fafc;
+}
+
+.activeIndicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--brand-navy);
+  border-radius: 50%;
+}
+
+.serviceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.servicePrice {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.serviceLabel {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
