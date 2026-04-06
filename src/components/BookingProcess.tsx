@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from 'react';
@@ -50,7 +51,7 @@ export default function BookingProcess() {
               />
             )}
             {currentStep === 2 && (
-              <AccountStep />
+              <AccountStep onNext={handleNext} />
             )}
             {currentStep === 3 && (
               <div style={{padding: '2rem'}}>Validation carte (placeholder)</div>

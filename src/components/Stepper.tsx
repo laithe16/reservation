@@ -14,7 +14,7 @@ export default function Stepper({ currentStep }: StepperProps) {
   return (
     <div className={styles.stepperContainer}>
       <ol className={styles.stepperList}>
-        {steps.map((step, index) => {
+        {steps.map((step) => {
           const isActive = step.id === currentStep;
           const isCompleted = step.id < currentStep;
           return (
